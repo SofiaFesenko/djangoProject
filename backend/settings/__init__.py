@@ -18,7 +18,12 @@ from settings.drf import *  # noqa: F405, F403, F401
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent  # backend
 LOGS_DIR = BASE_DIR / 'logs'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 MEDIA_ROOT = BASE_DIR / 'media'
 
 
@@ -29,9 +34,14 @@ MEDIA_ROOT = BASE_DIR / 'media'
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(int(os.environ.get('DEBUG')))
+# DEBUG = bool(int(os.environ.get('DEBUG')))
+DEBUG = True
+# debug_env = os.environ.get('DEBUG')
+# DEBUG = bool(int(debug_env)) if debug_env is not None else False
 
-ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '').split(" ")
+
+# ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '').split(" ")
+ALLOWED_HOSTS = ['8080', 'localhost', '0.0.0.0']
 
 
 # Application definition
@@ -49,7 +59,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'services.products_module',
-    'services.user_module'
+    'services.user_module',
+    'services.file_module'
 ]
 
 MIDDLEWARE = [
@@ -99,7 +110,8 @@ DATABASES = {
         "NAME": os.getenv("POSTGRES_DB", "postgres"),
         "USER": os.getenv("POSTGRES_USER", "postgres"),
         "PASSWORD": os.getenv("POSTGRES_PASSWORD", ""),
-        "HOST": os.getenv("DB_HOST", "db"),
+        "HOST": "0.0.0.0",
+        "PORT": "5534"
     }
 }
 
@@ -150,6 +162,8 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+LOGIN_URL = '/authentication/'
 
 
 SITE_URL = os.environ.get('SITE_URL')

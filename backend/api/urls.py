@@ -13,9 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView, SpectacularRedocView
+
+import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,8 +26,11 @@ urlpatterns = [
     path('', include('services.products_module.urls')),
     path('authentication/', include('services.user_module.urls.auth_urls')),
     path('profile/', include('services.user_module.urls.profile_urls')),
+    path('reservation/', include('services.user_module.urls.reservation_urls')),
 
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     path('api/docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
     path('api/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(
+    settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

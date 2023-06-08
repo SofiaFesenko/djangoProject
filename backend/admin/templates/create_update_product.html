@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+  <main>
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+      <h2>{{ subject }}</h2>
+    </div>
+
+    <div class="row justify-content-md-center">
+      <div class="col-md-6  col-sm-11">
+        <form method="POST" enctype="multipart/form-data" class="needs-validation" novalidate="">{% csrf_token %}
+          <div class="row g-3">
+
+            <label for="id_file" class="form-label">File</label>
+            <input type="file" name="file" id="id_file">
+
+            <div class="col-12">
+              <label for="id_title" class="form-label">Title</label>
+              <input class="form-control" name="title" value="{{ form.data.title }}" id="id_title" placeholder="you@example.com">
+              <div class="invalid-feedback">
+                Please enter a valid title
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="id_description" class="form-label">Description</label>
+              <textarea class="form-control" value="{{ form.data.description }}" placeholder="Leave a comment here" id="id_description" name="description" style="height: 100px"></textarea>
+              <div class="invalid-feedback">
+                Please enter a valid description
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="id_price" class="form-label">Price</label>
+              <input type="text" class="form-control" value="{{ form.data.price }}" id="id_price" name="price">
+              <div class="invalid-feedback">
+                Please enter your price
+              </div>
+            </div>
+
+            <div class="col-12">
+                <select class="form-select" id="id_currency" name="currency" aria-label="Floating label select example">
+                  {% for currency in currency_list %}
+                    <option {% if form.data.currency == currency or not form.data.currency and currency.is_default %} selected {% endif %} value=" {{currency.pk }}">{{ currency.title }}</option>
+                  {% endfor %}
+                </select>
+              <label for="id_currency" class="form-label">Currency</label>
+              <div class="invalid-feedback">
+                Please enter a valid Currency
+              </div>
+              <div class="col-12">
+                <input class="form-check-input" type="checkbox" value="" id="id_in_stock" name="in_stock">
+                <label class="form-check-label" for="id_in_stock">
+                  Stock
+                </label>
+              </div>
+            </div>
+
+          <hr class="my-4">
+
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="send_push">
+            <label class="form-check-label" for="send_push">Send Push</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="seller">
+            <label class="form-check-label" for="seller">Seller</label>
+          </div>
+
+          <button class="w-100 btn btn-primary btn-lg" type="submit">Registration</button>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}

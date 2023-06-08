@@ -30,6 +30,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=255, verbose_name='Title')),
                 ('description', models.TextField(max_length=2000, verbose_name='Description')),
                 ('price', models.FloatField(verbose_name='Price')),
+                # ('category', models.TextField(max_length=255, verbose_name='Category')),
                 ('in_stock', models.BooleanField(default=True, verbose_name='In Stock')),
                 ('currency', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='products', to='products_module.currency', verbose_name='Currency')),
                 ('owner', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='products', to=settings.AUTH_USER_MODEL, verbose_name='Owner')),

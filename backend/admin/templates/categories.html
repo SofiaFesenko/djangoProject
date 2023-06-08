@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+{% for product in products %}
+  <div class="card" style="width: 18rem;">
+    {% if product.files %}
+        <img src="{{ product.files }}" style="width: 100%; height: 100%" alt="">
+    {% endif %}
+    <div class="col-md-7 {% if product.id|divisibleby:'2' %} order-md-2 {% endif %}">
+      <h5 class="card-title">{{ product.title }}</h5>
+      <p>{{ product.description }}</p>
+      <p>category :
+        {% for category in product.category.all %}{{ category }}{% endfor %}
+      </p>
+      <p>{{ product.price }} {{ product.currency.symbol }}</p>
+    </div>
+  </div>
+{% endfor %}
+
+
+{% endblock %}

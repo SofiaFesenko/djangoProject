@@ -11,5 +11,5 @@ if __name__ == "__main__":
         'server.asgi:asgi_app',
         host="0.0.0.0", port=8080,
         reload=bool(os.environ.get('RELOAD_AFTER_CODE_CHANGES', False)),
-        reload_dirs=[reload_dir]
+        reload_dirs=[str(reload_dir)]
     )

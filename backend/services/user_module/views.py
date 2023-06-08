@@ -1,4 +1,6 @@
-from services.user_module.forms import RegistrationForm, AuthForm, ProfileForm
+from django.http import HttpResponseNotFound, HttpResponse
+
+from services.user_module.forms import RegistrationForm, AuthForm, ProfileForm, ReservationForm
 from django.contrib.auth import authenticate, login, get_user_model
 
 from django.contrib.auth.hashers import make_password
@@ -53,7 +55,10 @@ def profile(request):
     if not request.user.is_authenticated:
         return redirect('auth')
 
-    if request.method == "PUT":
+    # if not request.user.is_seller:
+    #     return HttpResponseNotFound
+
+    if request.method == "POST":
         form = ProfileForm(request.POST)
         if form.is_valid():
             user = request.user
@@ -84,4 +89,46 @@ def profile(request):
                                  'email': request.user.email})
 
         return render(request, 'profile.html', context={'form': form})
+
+
+def reservation(request):
+    if request.method == 'POST':
+        form = ReservationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponse("Table booked successfully!")
+        else:
+            return HttpResponse("Please fill in all the required fields.")
+    else:
+        form = ReservationForm()
+        return render(request, 'reservation.html', {'form': form})
+
+# class NewReservation(CreateView):
+#     template_name = "reservation.html"
+#     form_class = ReservationForm
+#
+#     def form_valid(self, form):
+#         new = form.save(commit=False)
+#         new.save()
+#         # sends a flash message to the user
+#         messages.success(
+#             self.request,
+#             "you have successfully booked a new")
+#
+#
+# def reservation(request):
+#     if request.method == 'POST':
+#         table_number = request.POST.get('table_number')
+#         reservation_date = request.POST.get('reservation_date')
+#
+#         # Валідація даних
+#         if not table_number or not reservation_date:
+#             return HttpResponse("Please fill in all the required fields.")
+#
+#         # Збереження даних в базу даних або інша обробка
+#         # ...
+#
+#         return HttpResponse("Table booked successfully!")
+#
+#         # return render(request, 'registration.html', context={'form': form})
 

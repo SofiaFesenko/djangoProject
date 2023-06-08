@@ -1,123 +1,172 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="active" aria-current="true"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+    <section id="hero" class="d-flex align-items-center">
+    <div class="container position-relative text-center text-lg-start aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
+      <div class="row">
+        <div class="col-lg-8">
+          <h1>Welcome to <span>Restaurantly</span></h1>
+          <h2>Delivering great food for more than 18 years!</h2>
 
-        <div class="container">
-          <div class="carousel-caption text-start">
-            <h1>Example headline.</h1>
-            <p>Some representative placeholder content for the first slide of the carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+          <div class="btns">
+            <a href="#menu" class="btn-menu animated fadeInUp scrollto">Our Menu</a>
+            <a href="http://localhost:8080/reservation/" class="btn-book animated fadeInUp scrollto">Book a Table</a>
           </div>
         </div>
-      </div>
-      <div class="carousel-item active">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
-
-        <div class="container">
-          <div class="carousel-caption">
-            <h1>Another example headline.</h1>
-            <p>Some representative placeholder content for the second slide of the carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
-          </div>
+        <div class="col-lg-4 d-flex align-items-center justify-content-center position-relative aos-init aos-animate" data-aos="zoom-in" data-aos-delay="200">
+          <a href="https://www.youtube.com/watch?v=u6BOC7CDUTQ" class="glightbox play-btn"></a>
         </div>
-      </div>
-      <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
 
-        <div class="container">
-          <div class="carousel-caption text-end">
-            <h1>One more for good measure.</h1>
-            <p>Some representative placeholder content for the third slide of this carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
-          </div>
-        </div>
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
+  </section>
 
 
-  <!-- Marketing messaging and featurettes
-  ================================================== -->
-  <!-- Wrap the rest of the page in another container to center all the content. -->
 
-  <div class="container marketing">
+  <section id="menu" class="menu section-bg">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
 
-    <!-- Three columns of text below the carousel -->
-    <div class="row">
-      <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+      <div class="section-title">
+        <h2>Menu</h2>
+        <p>Check Our Tasty Menu</p>
+      </div>
 
-        <h2>Heading</h2>
-        <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
-        <p><a class="btn btn-secondary" href="#">View details »</a></p>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
-        <h2>Heading</h2>
-        <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
-        <p><a class="btn btn-secondary" href="#">View details »</a></p>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
-        <h2>Heading</h2>
-        <p>And lastly this, the third column of representative placeholder content.</p>
-        <p><a class="btn btn-secondary" href="#">View details »</a></p>
-      </div><!-- /.col-lg-4 -->
-    </div><!-- /.row -->
+      <nav aria-label="..." style="display: flex; justify-content: center">
+        <ul class="pagination pagination-sm">
+          <li class="page-item active" aria-current="page">
+            <span class="page-link">All</span>
+          </li>
+          {% for category in categories %}
+            <li class="page-item"><a class="page-link" href="{% url 'category' category.id %}">{{ category.title }}</a></li>
+          {% endfor %}
 
 
-    <!-- START THE FEATURETTES -->
+<!--          <li class="page-item"><a class="page-link" href="{% for product in category.dinner %}<h2>{{ product.name }}</h2>{% endfor %}">Dinner</a></li>-->
+<!--          <li class="page-item"><a class="page-link" href="{% for product in category.salads %}<h2>{{ product.name }}</h2>{% endfor %}">Salads</a></li>-->
+<!--          <li class="page-item"><a class="page-link" href="{% for product in category.deserts %}<h2>{{ product.name }}</h2>{% endfor %}">Deserts</a></li>-->
+<!--          <li class="page-item"><a class="page-link" href="{% for product in category.drinks %}<h2>{{ product.name }}</h2>{% endfor %}">Drinks</a></li>-->
+        </ul>
+      </nav>
 
-    <hr class="featurette-divider">
-    {% for product in products %}
-        <div class="row featurette">
+      <div class="row menu-container aos-init aos-animate" data-aos="fade-up" data-aos-delay="200" style="position: relative;">
 
-          <div class="col-md-7 {% if product.id|divisibleby:"2" %} order-md-2 {% endif %}">
-            <h2 class="featurette-heading">{{ product.title }}</h2>
-            <p class="lead">{{ product.description }}</p>
+          {% for product in products %}
+              <div class="card" style="width: 18rem;">
+                {% if product.files %}
+                    <img src="{{ product.files }}" style="width: 100%; height: 100%" alt="">
+                {% endif %}
+<!--                <img src="https://bootstrapmade.com/demo/templates/Restaurantly/assets/img/menu/lobster-bisque.jpg" alt="">-->
+                <div class="col-md-7 {% if product.id|divisibleby:'2' %} order-md-2 {% endif %}">
+                  <h5 class="card-title">{{ product.title }}</h5>
+                  <p>{{ product.description }}</p>
+                  <p>category :
+                    {% for category in product.category.all %}{{ category }}{% endfor %}
+                  </p>
+                  <p>{{ product.price }} {{ product.currency.symbol }}</p>
+                </div>
+              </div>
+          {% endfor %}
+      </div>
+
+      <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Previous">
+            <span aria-hidden="true">«</span>
+          </a>
+        </li>
+        {% for i in pages_count|get_range %}
+          <li class="page-item {% if i == page_number %} active {% endif %}"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+        {% endfor %}
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Next">
+            <span aria-hidden="true">»</span>
+          </a>
+        </li>
+      </ul>
+
+
+
+      <section id="gallery" class="gallery">
+
+      <div class="container aos-init aos-animate" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Gallery</h2>
+          <p>Some photos from Our Restaurant</p>
+        </div>
+      </div>
+
+      <div class="container-fluid aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+        <div class="row g-0">
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="" class="gallery-lightbox" data-gall="gallery-item">
+                <img src="https://bootstrapmade.com/demo/templates/Restaurantly/assets/img/gallery/gallery-1.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
           </div>
-          <div class="col-md-5">
-            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
 
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="" class="gallery-lightbox" data-gall="gallery-item">
+                <img src="https://bootstrapmade.com/demo/templates/Restaurantly/assets/img/gallery/gallery-2.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
           </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="" class="gallery-lightbox" data-gall="gallery-item">
+                <img src="https://bootstrapmade.com/demo/templates/Restaurantly/assets/img/gallery/gallery-3.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="" class="gallery-lightbox" data-gall="gallery-item">
+                <img src="https://bootstrapmade.com/demo/templates/Restaurantly/assets/img/gallery/gallery-4.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="" class="gallery-lightbox" data-gall="gallery-item">
+                <img src="https://bootstrapmade.com/demo/templates/Restaurantly/assets/img/gallery/gallery-5.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="" class="gallery-lightbox" data-gall="gallery-item">
+                <img src="https://bootstrapmade.com/demo/templates/Restaurantly/assets/img/gallery/gallery-6.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="" class="gallery-lightbox" data-gall="gallery-item">
+                <img src="https://bootstrapmade.com/demo/templates/Restaurantly/assets/img/gallery/gallery-7.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="" class="gallery-lightbox" data-gall="gallery-item">
+                <img src="https://bootstrapmade.com/demo/templates/Restaurantly/assets/img/gallery/gallery-8.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
         </div>
 
-        <hr class="featurette-divider">
-    {% endfor %}
-
-  <nav aria-label="...">
-  <ul class="pagination justify-content-center">
-    <li class="page-item disabled">
-      <a class="page-link" href="?page={{ page_number|add:-1 }}">Previous</a>
-    </li>
-      {% for i in pages_count|get_range %}
-    <li class="page-item {% if i == page_number %} active {% endif %}"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
-      {% endfor %}
-    <li class="page-item">
-      <a class="page-link" href="?page={{ page_number|add:1 }}">Next</a>
-    </li>
-  </ul>
-</nav>
-    <!-- /END THE FEATURETTES -->
-
-  </div><!-- /.container -->
+      </div>
+    </section>
+    </div>
+  </section>
 {% endblock %}
