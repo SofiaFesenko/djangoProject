@@ -40,12 +40,6 @@
           {% for category in categories %}
             <li class="page-item"><a class="page-link" href="{% url 'category' category.id %}">{{ category.title }}</a></li>
           {% endfor %}
-
-
-<!--          <li class="page-item"><a class="page-link" href="{% for product in category.dinner %}<h2>{{ product.name }}</h2>{% endfor %}">Dinner</a></li>-->
-<!--          <li class="page-item"><a class="page-link" href="{% for product in category.salads %}<h2>{{ product.name }}</h2>{% endfor %}">Salads</a></li>-->
-<!--          <li class="page-item"><a class="page-link" href="{% for product in category.deserts %}<h2>{{ product.name }}</h2>{% endfor %}">Deserts</a></li>-->
-<!--          <li class="page-item"><a class="page-link" href="{% for product in category.drinks %}<h2>{{ product.name }}</h2>{% endfor %}">Drinks</a></li>-->
         </ul>
       </nav>
 

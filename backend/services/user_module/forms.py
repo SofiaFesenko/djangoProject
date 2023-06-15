@@ -29,6 +29,7 @@ class AuthForm(forms.ModelForm):
 class ReservationForm(forms.ModelForm):
     class Meta:
         model = User
+        # fields = ('first_name', 'last_name', 'email', 'people', 'date', 'time')
         fields = ('first_name', 'last_name', 'email')
 
     # date_reserved = forms.DateField(widget=forms.TextInput(attrs={}), required=True,)

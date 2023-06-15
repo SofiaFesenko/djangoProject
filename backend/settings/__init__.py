@@ -110,8 +110,7 @@ DATABASES = {
         "NAME": os.getenv("POSTGRES_DB", "postgres"),
         "USER": os.getenv("POSTGRES_USER", "postgres"),
         "PASSWORD": os.getenv("POSTGRES_PASSWORD", ""),
-        "HOST": "0.0.0.0",
-        "PORT": "5534"
+        "HOST": os.getenv("DB_HOST", "db"),
     }
 }
 
@@ -176,12 +175,12 @@ SITE_URL = os.environ.get('SITE_URL')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-EMAIL_BACKEND = 'django.core.mail.smtp.EmailBackend'
-
-EMAIL_HOST = 'smtp.gmail.com'
-
-EMAIL_PORT = 587
-
-EMAIL_HOST_USER = 'sofijkasupercool9000@gmail.com'
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-EMAIL_USE_TLS = True
+# EMAIL_BACKEND = 'django.core.mail.smtp.EmailBackend'
+#
+# EMAIL_HOST = 'smtp.gmail.com'
+#
+# EMAIL_PORT = 587
+#
+# EMAIL_HOST_USER = 'sofijkasupercool9000@gmail.com'
+# EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+# EMAIL_USE_TLS = True

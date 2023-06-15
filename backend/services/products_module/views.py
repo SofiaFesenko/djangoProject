@@ -12,7 +12,7 @@ from rest_framework.views import APIView
 from services.file_module.models import File
 # from services.products_module.filter import CategoryFilter
 from services.products_module.forms import UpdateProductForm
-from services.products_module.models import Product, Currency, Category #, Category
+from services.products_module.models import Product, Currency, Category
 
 from django.template.defaulttags import register
 from django.core.exceptions import BadRequest
@@ -167,7 +167,3 @@ class CategoryProducts(APIView):
         self.products = self.get_objects(category)
         print(self.products)
         return Response({'products': self.products}, template_name='categories.html')
-
-
-
-

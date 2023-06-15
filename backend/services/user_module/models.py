@@ -5,6 +5,7 @@ from django.db import models
 class User(AbstractUser):
     is_seller = models.BooleanField(default=False, verbose_name='Seller')
 
+
     @property
     def full_name(self):
         return f'{self.first_name} {self.last_name}'
@@ -22,9 +23,9 @@ class User(AbstractUser):
 
 
 class UserAddress(models.Model):
-    country = models.CharField(max_length=255, verbose_name='Country')
-    city = models.CharField(max_length=255, verbose_name='City')
-    address = models.CharField(max_length=255, verbose_name='Address')
+    country = models.CharField(max_length=255, verbose_name='Country', null=True, blank=True)
+    city = models.CharField(max_length=255, verbose_name='City', null=True, blank=True)
+    address = models.CharField(max_length=255, verbose_name='Address', null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='User', related_name='user_address')
 
 
@@ -37,26 +38,26 @@ class UserSettings(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='User', related_name='user_settings')
 
 
-class UserReservation(models.Model):
-    first_name = models.CharField(max_length=200)
-    last_name = models.CharField(max_length=200)
-    email = models.EmailField()
-    one = '1'
-    two = '2'
-    three = '3'
-    four = '4'
-    five = '5'
-    people_choices = ((one, 'one person'), (two, 'two people'), (three, 'three people'),
-                      (four, 'four people'), (five, 'five  people'))
-    people = models.CharField(max_length=1, choices=people_choices, default=one)
-    date = models.DateField()
-    time = models.TimeField()
-    # pending = "pending"
-    # confirmed = "confirmed"
-    # status_choices = ((pending, "pending"), (confirmed, "confirmed"))
-    # status = models.CharField(
-    #     max_length=10, choices=status_choices, default=pending)
-    # comment = models.TextField(blank=True)
-
-    def __str__(self):
-        return self.first_name
+# class UserReservation(models.Model):
+#     first_name = models.CharField(max_length=200)
+#     last_name = models.CharField(max_length=200)
+#     email = models.EmailField()
+#     one = '1'
+#     two = '2'
+#     three = '3'
+#     four = '4'
+#     five = '5'
+#     people_choices = ((one, 'one person'), (two, 'two people'), (three, 'three people'),
+#                       (four, 'four people'), (five, 'five  people'))
+#     people = models.CharField(max_length=1, choices=people_choices, default=one)
+#     date = models.DateField()
+#     time = models.TimeField()
+#     # pending = "pending"
+#     # confirmed = "confirmed"
+#     # status_choices = ((pending, "pending"), (confirmed, "confirmed"))
+#     # status = models.CharField(
+#     #     max_length=10, choices=status_choices, default=pending)
+#     comment = models.TextField(blank=True)
+#
+#     def __str__(self):
+#         return self.first_name

@@ -1,5 +1,6 @@
 from django.http import HttpResponseNotFound, HttpResponse
 
+from services.user_module import admin
 from services.user_module.forms import RegistrationForm, AuthForm, ProfileForm, ReservationForm
 from django.contrib.auth import authenticate, login, get_user_model
 
@@ -25,8 +26,10 @@ def registration(request):
             user.last_name = form.data['last_name']
 
             user.save()
+        else:
+            print(form)
 
-            return redirect('auth')
+        return redirect('auth')
     else:
         form = RegistrationForm()
 
@@ -34,7 +37,6 @@ def registration(request):
 
 
 def auth(request):
-    send_email(subject='tet', body='tet', recipients=['sofijkasupercool9000@gmail.com'])
     if request.method == "POST":
         form = AuthForm(request.POST)
         if form.is_valid():
@@ -54,9 +56,6 @@ def auth(request):
 def profile(request):
     if not request.user.is_authenticated:
         return redirect('auth')
-
-    # if not request.user.is_seller:
-    #     return HttpResponseNotFound
 
     if request.method == "POST":
         form = ProfileForm(request.POST)
@@ -95,7 +94,16 @@ def reservation(request):
     if request.method == 'POST':
         form = ReservationForm(request.POST)
         if form.is_valid():
-            form.save()
+            reserv = User.objects.create_reservation(email=form.data['email'],
+                                                     username=form.data['username'],
+                                                     password=form.data['password'],
+                                                     people=form.data['people'],
+                                                     date=form.data['date'],
+                                                     time=form.data['time'])
+            reserv.first_name = form.data['first_name']
+            reserv.last_name = form.data['last_name']
+
+            reserv.save()
             return HttpResponse("Table booked successfully!")
         else:
             return HttpResponse("Please fill in all the required fields.")

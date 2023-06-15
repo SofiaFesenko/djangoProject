@@ -24,5 +24,3 @@ class CategoryAdmin(admin.ModelAdmin):
 
     def title(self, obj):
         return obj.description
-
-# admin.site.register(Category)
